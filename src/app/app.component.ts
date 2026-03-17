@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'curso-angular-matheus-yt';
+  name: string = 'Jamile';
 }
