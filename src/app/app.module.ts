@@ -12,6 +12,7 @@ import { EmitterComponent } from './components/emitter/emitter.component';
 import { ChangeNumberComponent } from './components/change-number/change-number.component';
 import { SonComponent } from './components/son/son.component';
 import { FatherComponent } from './components/father/father.component';
+import { TrainingListsComponent } from './components/training-lists/training-lists.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FatherComponent } from './components/father/father.component';
     ChangeNumberComponent,
     SonComponent,
     FatherComponent,
+    TrainingListsComponent,
   ],
   imports: [
     BrowserModule,

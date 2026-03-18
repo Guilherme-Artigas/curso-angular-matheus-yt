@@ -1,0 +1,20 @@
+<div class="learning">
+  <ul>
+    <h1>Lista de nomes</h1>
+    <li *ngFor="let name of listNames">{{ name }}</li>
+  </ul>
+
+  <ul>
+    <h1>Lista de carros</h1>
+    <li *ngFor="let car of listCars">
+      <p>Model: {{ car.model }}</p>
+      <p>Cor: {{ car.color }}</p>
+      <p>Ano: <span *ngIf="car.showYear; else notShowYear">{{ car.year }}</span></p>
+      <button (click)="handleShowYear(car)">Mostrar Ano</button>
+    </li>
+  </ul>
+
+  <ng-template #notShowYear>
+    <span>Não mostrar</span>
+  </ng-template>
+</div>
