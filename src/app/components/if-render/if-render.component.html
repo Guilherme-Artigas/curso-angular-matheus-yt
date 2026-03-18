@@ -1,0 +1,4 @@
+<div class="learning">
+  <div *ngIf="active; else canActive">Texto exibido caso a condicional seja verdadeira.</div>
+  <ng-template #canActive>Texto exibido quando a condicional não é atendida.</ng-template>
+</div>
