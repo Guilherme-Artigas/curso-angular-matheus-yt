@@ -10,7 +10,8 @@
       <p>Model: {{ car.model }}</p>
       <p>Cor: {{ car.color }}</p>
       <p>Ano: <span *ngIf="car.showYear; else notShowYear">{{ car.year }}</span></p>
-      <button (click)="handleShowYear(car)">Mostrar Ano</button>
+      <button (click)="handleShowYear(car)">Mostrar Ano</button> -
+      <button (click)="handleDeleteCar(car, listCars)">Deletar Carro</button>
     </li>
   </ul>
 

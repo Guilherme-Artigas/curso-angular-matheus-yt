@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Car } from 'src/app/interfaces/Car';
+import { TrainingListsService } from './training-lists.service';
 
 @Component({
   selector: 'app-training-lists',
@@ -35,7 +36,7 @@ export class TrainingListsComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private trainingListService: TrainingListsService) { }
 
   ngOnInit(): void {
   }
@@ -44,5 +45,10 @@ export class TrainingListsComponent implements OnInit {
     for (let c of this.listCars) {
       if (c.model === car.model) c.showYear = !c.showYear;
     }
+  }
+
+  handleDeleteCar(car: Car, cars: Car[]): void {
+    const newListCars: Car[] = this.trainingListService.handleDeleteCar(car, cars);
+    this.listCars = newListCars;
   }
 }
