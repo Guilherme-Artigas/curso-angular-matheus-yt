@@ -13,6 +13,7 @@ import { ChangeNumberComponent } from './components/change-number/change-number.
 import { SonComponent } from './components/son/son.component';
 import { FatherComponent } from './components/father/father.component';
 import { TrainingListsComponent } from './components/training-lists/training-lists.component';
+import { TrainingPipesComponent } from './components/training-pipes/training-pipes.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { TrainingListsComponent } from './components/training-lists/training-lis
     SonComponent,
     FatherComponent,
     TrainingListsComponent,
+    TrainingPipesComponent,
   ],
   imports: [
     BrowserModule,
