@@ -14,6 +14,8 @@ import { SonComponent } from './components/son/son.component';
 import { FatherComponent } from './components/father/father.component';
 import { TrainingListsComponent } from './components/training-lists/training-lists.component';
 import { TrainingPipesComponent } from './components/training-pipes/training-pipes.component';
+import { TwoWayBindingsComponent } from './components/two-way-bindings/two-way-bindings.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,12 @@ import { TrainingPipesComponent } from './components/training-pipes/training-pip
     FatherComponent,
     TrainingListsComponent,
     TrainingPipesComponent,
+    TwoWayBindingsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
