@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./father.component.css']
 })
 export class FatherComponent implements OnInit {
-  text: string = '';
+  public text: string = '';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  receivedValue(textReceived: string): void {
+  public receivedValue(textReceived: string): void {
     this.text = textReceived;
   }
 }

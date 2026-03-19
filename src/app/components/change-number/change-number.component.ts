@@ -13,7 +13,7 @@ export class ChangeNumberComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleCount(): void {
+  public handleCount(): void {
     this.changeNumber.emit();
   }
 }

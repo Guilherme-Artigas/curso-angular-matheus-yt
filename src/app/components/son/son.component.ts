@@ -13,7 +13,7 @@ export class SonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sendEvent(): void {
+  public sendEvent(): void {
     this.event.emit('Olá eu estou sendo enviado do componente filho.');
   }
 }

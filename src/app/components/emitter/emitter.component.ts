@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emitter.component.css']
 })
 export class EmitterComponent implements OnInit {
-  count: number = 0;
+  public count: number = 0;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onChangeNumber(): void {
+  public onChangeNumber(): void {
     this.count = this.count + 1;
   }
 }

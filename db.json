@@ -1,0 +1,28 @@
+{
+  "cars": [
+    {
+      "color": "Verde escuro",
+      "model": "Palio",
+      "year": 2007,
+      "showYear": false
+    },
+    {
+      "color": "Azul",
+      "model": "Tera",
+      "year": 2025,
+      "showYear": false
+    },
+    {
+      "color": "Branco",
+      "model": "Fiesta",
+      "year": 2015,
+      "showYear": false
+    },
+    {
+      "color": "Cinza",
+      "model": "HB20",
+      "year": 2020,
+      "showYear": false
+    }
+  ]
+}

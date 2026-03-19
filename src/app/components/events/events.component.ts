@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  showMessage: boolean = true;
+  public showMessage: boolean = true;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  handleMessage(): void {
+  public handleMessage(): void {
     this.showMessage = !this.showMessage;
   }
 }

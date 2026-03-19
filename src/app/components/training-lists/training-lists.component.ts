@@ -9,45 +9,25 @@ import { TrainingListsService } from './training-lists.service';
 })
 export class TrainingListsComponent implements OnInit {
   listNames: string[] = ['Guilherme', 'Jamile', 'Rafaela', 'Julia', 'João'];
-  listCars: Car[] = [
-    {
-      color: 'Verde escuro',
-      model: 'Palio',
-      year: 2007,
-      showYear: false,
-    },
-    {
-      color: 'Azul',
-      model: 'Tera',
-      year: 2025,
-      showYear: false,
-    },
-    {
-      color: 'Branco',
-      model: 'Fiesta',
-      year: 2015,
-      showYear: false,
-    },
-    {
-      color: 'Cinza',
-      model: 'HB20',
-      year: 2020,
-      showYear: false,
-    }
-  ];
+  listCars: Car[] = [];
 
   constructor(private trainingListService: TrainingListsService) { }
 
   ngOnInit(): void {
+    this.getAllCars();
   }
 
-  handleShowYear(car: Car): void {
+  public getAllCars(): void {
+    this.trainingListService.getAllCars().subscribe((cars) => this.listCars = cars);
+  }
+
+  public handleShowYear(car: Car): void {
     for (let c of this.listCars) {
       if (c.model === car.model) c.showYear = !c.showYear;
     }
   }
 
-  handleDeleteCar(car: Car, cars: Car[]): void {
+  public handleDeleteCar(car: Car, cars: Car[]): void {
     const newListCars: Car[] = this.trainingListService.handleDeleteCar(car, cars);
     this.listCars = newListCars;
   }

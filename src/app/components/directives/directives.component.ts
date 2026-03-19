@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./directives.component.css']
 })
 export class DirectivesComponent implements OnInit {
-  size: number = 20;
-  font: string = 'Arial';
-  color: string = 'blue';
-  classes: string[] = ['text-green', 'text-small'];
+  public size: number = 20;
+  public font: string = 'Arial';
+  public color: string = 'blue';
+  public classes: string[] = ['text-green', 'text-small'];
 
   constructor() { }
 
