@@ -16,6 +16,7 @@ import { TrainingListsComponent } from './components/training-lists/training-lis
 import { TrainingPipesComponent } from './components/training-pipes/training-pipes.component';
 import { TwoWayBindingsComponent } from './components/two-way-bindings/two-way-bindings.component';
 import { FormsModule } from '@angular/forms';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

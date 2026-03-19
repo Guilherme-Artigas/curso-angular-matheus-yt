@@ -1,11 +1,18 @@
+<header>
+  <div>
+    <img src="#" alt="Imagem da logo">
+    <p>Logo</p>
+  </div>
+
+  <nav>
+    <a routerLink="/">Home</a> -
+    <a routerLink="/list">Listas</a>
+  </nav>
+</header>
+
+
+
+
+
 <h1>Olá mundo</h1>
-<app-first-component></app-first-component>
-<app-parent-data [name]="name"></app-parent-data>
-<app-directives></app-directives>
-<app-if-render></app-if-render>
-<app-events></app-events>
-<app-emitter></app-emitter>
-<app-father></app-father>
-<app-training-lists></app-training-lists>
-<app-training-pipes></app-training-pipes>
-<app-two-way-bindings></app-two-way-bindings>
+<router-outlet></router-outlet>
