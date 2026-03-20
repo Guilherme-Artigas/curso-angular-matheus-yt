@@ -18,6 +18,7 @@ import { TwoWayBindingsComponent } from './components/two-way-bindings/two-way-b
 import { FormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailComponent } from './components/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     TrainingListsComponent,
     TrainingPipesComponent,
     TwoWayBindingsComponent,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,

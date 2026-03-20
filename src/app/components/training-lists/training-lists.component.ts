@@ -31,4 +31,10 @@ export class TrainingListsComponent implements OnInit {
     const newListCars: Car[] = this.trainingListService.handleDeleteCar(car, cars);
     this.listCars = newListCars;
   }
+
+  public delete(id: number): void {
+    this.trainingListService.delete(id).subscribe((carExclued: Car) => {
+      this.listCars = this.listCars.filter((car) => car.id !== id);
+    });
+  }
 }

@@ -21,4 +21,8 @@ export class TrainingListsService {
 
     return newListCars;
   }
+
+  public delete(id: number): Observable<Car> {
+    return this.httpClient.delete<Car>(`${this.apiUrl}/${id}`);
+  }
 }
