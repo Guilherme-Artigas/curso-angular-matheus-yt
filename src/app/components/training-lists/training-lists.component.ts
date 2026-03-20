@@ -18,7 +18,15 @@ export class TrainingListsComponent implements OnInit {
   }
 
   public getAllCars(): void {
-    this.trainingListService.getAllCars().subscribe((cars) => this.listCars = cars);
+    this.trainingListService.getAllCars().subscribe({
+      next: (cars) => {
+        this.listCars = cars;
+      },
+      error: (error) => {
+        console.error('Erro ao buscar todos os carros: ', error);
+        alert('Erro ao buscar todos os carros');
+      }
+    });
   }
 
   public handleShowYear(car: Car): void {
@@ -33,8 +41,14 @@ export class TrainingListsComponent implements OnInit {
   }
 
   public delete(id: number): void {
-    this.trainingListService.delete(id).subscribe((carExclued: Car) => {
-      this.listCars = this.listCars.filter((car) => car.id !== id);
+    this.trainingListService.delete(id).subscribe({
+      next: () => {
+        this.listCars = this.listCars.filter((car) => car.id !== id);
+      },
+      error: (error) => {
+        console.error('Erro ao deletar: ', error);
+        alert('Erro ao deletar');
+      }
     });
   }
 }

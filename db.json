@@ -1,27 +1,6 @@
 {
   "cars": [
     {
-      "id": "3",
-      "color": "Prata",
-      "model": "Onix",
-      "year": 2021,
-      "showYear": true
-    },
-    {
-      "id": "4",
-      "color": "Vermelho",
-      "model": "HB20",
-      "year": 2019,
-      "showYear": false
-    },
-    {
-      "id": "5",
-      "color": "Azul",
-      "model": "Gol",
-      "year": 2017,
-      "showYear": true
-    },
-    {
       "id": "6",
       "color": "Cinza",
       "model": "Cruze",
