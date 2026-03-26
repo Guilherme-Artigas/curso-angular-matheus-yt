@@ -19,6 +19,10 @@ import { FormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailComponent } from './components/detail/detail.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { AboutComponent } from './components/pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { DetailComponent } from './components/detail/detail.component';
     TrainingPipesComponent,
     TwoWayBindingsComponent,
     DetailComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
