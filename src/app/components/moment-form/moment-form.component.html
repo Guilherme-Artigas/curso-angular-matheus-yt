@@ -5,7 +5,7 @@
     <input type="text" placeholder="Coloque um título" required formControlName="title">
     <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
       <p *ngIf="title.errors?.['required']">O título é obrigatório.</p>
-      <p *ngIf="title.errors?.['minlength'] && title.touched">O título deve ter no minimo 3 caracteres.</p>
+      <p *ngIf="title.errors?.['minlength']">O título deve ter no minimo 3 caracteres.</p>
       <p *ngIf="title.errors?.['maxlength']">O título deve ter no máximo 10 caracteres.</p>
     </div>
   </div>
@@ -21,7 +21,7 @@
 
   <div class="form-group">
     <label for="image">Adicione uma imagem: </label>
-    <input type="file" required>
+    <input type="file" (change)="handleFile($event)">
   </div>
 
   <input type="submit" value="{{ btnText }}">
