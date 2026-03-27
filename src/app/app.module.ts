@@ -15,7 +15,7 @@ import { FatherComponent } from './components/father/father.component';
 import { TrainingListsComponent } from './components/training-lists/training-lists.component';
 import { TrainingPipesComponent } from './components/training-pipes/training-pipes.component';
 import { TwoWayBindingsComponent } from './components/two-way-bindings/two-way-bindings.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailComponent } from './components/detail/detail.component';
@@ -53,7 +53,8 @@ import { MomentFormComponent } from './components/moment-form/moment-form.compon
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
