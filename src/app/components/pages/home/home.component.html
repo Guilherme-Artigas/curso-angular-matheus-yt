@@ -2,7 +2,12 @@
 
   <h1 *ngIf="allMoments.length > 0">Todos os momentos compartilhados</h1>
 
-  <!-- Adicionar opção para busca! -->
+  <div class="search-container">
+    <form>
+      <fa-icon [icon]="faSearch"></fa-icon>
+      <input type="text" placeholder="Busque por um momento..." (input)="searchMoment($event)">
+    </form>
+  </div>
 
   <ul *ngIf="allMoments.length > 0; else noMoments">
     <div class="moments-container">
@@ -17,6 +22,6 @@
   </ul>
 
   <ng-template #noMoments>
-    <h1>Não há momentos cadastrados.</h1>
+    <h1>Nenhum momento encontrado.</h1>
   </ng-template>
 </div>

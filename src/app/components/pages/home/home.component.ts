@@ -4,6 +4,7 @@ import { HomeService } from './home.service';
 import { MessageService } from '../../message/message.service';
 import { Response } from 'src/app/interfaces/Response';
 import { environment } from 'src/environments/environment';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,13 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  public apiUrl: string = environment.apiUrl;
+
   public allMoments: Moment[] = [];
   public momentsFiltered: Moment[] = [];
-  public apiUrl: string = environment.apiUrl;
+  public term: string = '';
+
+  public faSearch = faSearch;
 
   constructor(
     private readonly homeService: HomeService,
@@ -24,6 +29,7 @@ export class HomeComponent implements OnInit {
     this.homeService.getAll().subscribe({
       next: (response: Response<Moment[]>) => {
         this.allMoments = response.data;
+        this.momentsFiltered = response.data;
       },
       error: (err) => {
         this.messageService.showMessage('Erro ao buscar momentos.');
@@ -32,4 +38,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  public searchMoment(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    const value = target.value;
+
+    this.allMoments = this.momentsFiltered.filter((moment: Moment) => moment.title.toLowerCase().includes(value));
+  }
 }
