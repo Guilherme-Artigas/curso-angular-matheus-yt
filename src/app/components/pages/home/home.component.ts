@@ -3,6 +3,7 @@ import { Moment } from 'src/app/interfaces/Moment';
 import { HomeService } from './home.service';
 import { MessageService } from '../../message/message.service';
 import { Response } from 'src/app/interfaces/Response';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { Response } from 'src/app/interfaces/Response';
 export class HomeComponent implements OnInit {
   public allMoments: Moment[] = [];
   public momentsFiltered: Moment[] = [];
+  public apiUrl: string = environment.apiUrl;
 
   constructor(
     private readonly homeService: HomeService,
