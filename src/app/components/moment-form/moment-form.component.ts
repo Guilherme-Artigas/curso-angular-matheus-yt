@@ -17,21 +17,12 @@ export class MomentFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (this.btnText === 'Compartilhar!') {
-      this.momentForm = new FormGroup({
-        id: new FormControl(''),
-        title: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
-        description: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-        image: new FormControl(''),
-      });
-    } else {
-      this.momentForm = new FormGroup({
-        id: new FormControl(this.momentData?.id),
-        title: new FormControl(this.momentData?.title, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
-        description: new FormControl(this.momentData?.description, [Validators.required, Validators.maxLength(50)]),
-        image: new FormControl(this.momentData?.image),
-      });
-    }
+    this.momentForm = new FormGroup({
+      id: new FormControl(this.momentData ? this.momentData.id : ''),
+      title: new FormControl(this.momentData ? this.momentData.title : '', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
+      description: new FormControl(this.momentData ? this.momentData.description : '', [Validators.required, Validators.maxLength(50)]),
+      image: new FormControl(''),
+    });
   }
 
   public get title() {

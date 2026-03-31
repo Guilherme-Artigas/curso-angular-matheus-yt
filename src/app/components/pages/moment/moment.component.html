@@ -1,4 +1,4 @@
-<div class="moment">
+<div class="moment" *ngIf="moment">
   <h1>{{ moment.title }}</h1>
   <img src="{{ apiUrl }}/uploads/{{ moment.image }}" alt="{{ moment.title }}">
   <div class="about-moment">

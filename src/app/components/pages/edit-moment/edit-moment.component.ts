@@ -15,7 +15,6 @@ export class EditMomentComponent implements OnInit {
   public moment!: Moment;
   public btnText: string = 'Editar';
   public id!: number;
-  public editMomentForm!: FormGroup;
 
   constructor(
     private readonly editMomentService: EditMomentService,
@@ -37,20 +36,24 @@ export class EditMomentComponent implements OnInit {
         console.error('Houve erro ao buscar momento: ', err);
       }
     });
+  }
 
-    this.editMomentForm = new FormGroup({
-      id: new FormControl(this.moment.id),
-      title: new FormControl(this.moment.title, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
-      description: new FormControl(this.moment.description, [Validators.required, Validators.maxLength(50)]),
-      image: new FormControl(this.moment.image),
+  public handleEdit(id: number, moment: Moment): void {
+    const formData: FormData = new FormData();
+
+    formData.append('title', moment.title);
+    formData.append('description', moment.description);
+
+    if (moment.image) formData.append('image', moment.image);
+
+    this.editMomentService.edit(id, formData).subscribe({
+      next: (response) => {
+        this.messageService.showMessage('Momento editado com sucesso!');
+      },
+      error: (err) => {
+        this.messageService.showMessage('Erro ao editar momento!');
+        console.error('Erro ao editar momento: ', err)
+      },
     });
-  }
-
-  public get title() {
-    return this.editMomentForm.get('title');
-  }
-
-  public get description() {
-    return this.editMomentForm.get('description');
   }
 }
