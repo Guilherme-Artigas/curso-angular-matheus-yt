@@ -24,17 +24,10 @@
   <div class="comments">
     <h3>Comentários ({{ moment.comments?.length }})</h3>
 
-    <!-- <div *ngIf="moment.comments!.length > 0; else noComments">
+    <div *ngIf="moment.comments!.length > 0; else noComments">
       <div class="comment-container" *ngFor="let comment of moment.comments">
         <p class="comment">{{ comment.text }}</p>
         <p class="author"><span>por: </span> {{ comment.username }}</p>
-      </div>
-    </div> -->
-
-    <div>
-      <div>
-        <p class="comment">Texto do comentário</p>
-        <p class="author"><span>por: </span> Guilherme</p>
       </div>
     </div>
 
