@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MomentService } from './moment.service';
 import { Moment } from 'src/app/interfaces/Moment';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from '../../message/message.service';
 import { environment } from 'src/environments/environment';
 import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -22,7 +22,8 @@ export class MomentComponent implements OnInit {
   constructor(
     private readonly momentService: MomentService,
     private readonly activatedRoute: ActivatedRoute,
-    private readonly messageService: MessageService
+    private readonly messageService: MessageService,
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +35,19 @@ export class MomentComponent implements OnInit {
       error: (err) => {
         this.messageService.showMessage('Houve erro ao buscar detalhes do momento.');
         console.error('Houve erro ao buscar detalhes do momento: ', err);
+      }
+    });
+  }
+
+  public delete(id: number): void {
+    this.momentService.delete(id).subscribe({
+      next: (response) => {
+        this.messageService.showMessage('Momento excluído com sucesso!');
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        this.messageService.showMessage('Erro ao excluir momento.');
+        console.error('Erro ao excluir momento: ', err);
       }
     });
   }
