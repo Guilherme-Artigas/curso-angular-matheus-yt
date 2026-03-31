@@ -10,17 +10,28 @@ import { Moment } from 'src/app/interfaces/Moment';
 export class MomentFormComponent implements OnInit {
   @Input() public btnText!: string;
   @Output() public onSubmit = new EventEmitter<Moment>();
+  @Input() public momentData: Moment | null = null;
+
   public momentForm!: FormGroup;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.momentForm = new FormGroup({
-      id: new FormControl(''),
-      title: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
-      description: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      image: new FormControl(''),
-    });
+    if (this.btnText === 'Compartilhar!') {
+      this.momentForm = new FormGroup({
+        id: new FormControl(''),
+        title: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
+        description: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+        image: new FormControl(''),
+      });
+    } else {
+      this.momentForm = new FormGroup({
+        id: new FormControl(this.momentData?.id),
+        title: new FormControl(this.momentData?.title, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
+        description: new FormControl(this.momentData?.description, [Validators.required, Validators.maxLength(50)]),
+        image: new FormControl(this.momentData?.image),
+      });
+    }
   }
 
   public get title() {
