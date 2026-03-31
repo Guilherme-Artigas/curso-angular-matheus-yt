@@ -4,7 +4,7 @@ import { HomeService } from './home.service';
 import { MessageService } from '../../message/message.service';
 import { Response } from 'src/app/interfaces/Response';
 import { environment } from 'src/environments/environment';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleRight, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   public term: string = '';
 
   public faSearch = faSearch;
+  public faArrowCircleRight = faArrowCircleRight;
 
   constructor(
     private readonly homeService: HomeService,
